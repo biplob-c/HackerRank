@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+string output(int x) {
+    if (x < 10)
+        return "0" + to_string(x); //Converts the numerical value(x) into string, then Returns string value with concatenating leading zero(string value)
+    else 
+        return to_string(x);//returns string value  after converting the numerical value of "x"
+}
+
+int main() {
+    int h, m, s; //hour, minutes, seconds
+    string str;
+    char r;//ratio
+    cin >> h >> r >> m >> r >> s >> str;
+
+    if (str == "PM" && h != 12) {
+        h+=12;//h=h+12
+    }       
+    else if (str == "AM" && h == 12) {
+        h = (h + 12) % 24;//
+        //h += 12 % 24;
+    }
+    cout << output(h) << ":" << output(m) << ":" << output(s) << endl;
+    return 0;
+}
